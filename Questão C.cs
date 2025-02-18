@@ -13,12 +13,21 @@ namespace Foreach
 		
 		List<int> numeros = new List<int> { 1, 2, 3, 4, 5, 6 };
 		
-		int Maiornumero = numeros.Max();
+		int Maiornumero = int.MinValue;
+	
+		foreach (int numero in numeros)
 			
+		{
+			if (numero > Maiornumero) 
 			{
-			Console.WriteLine(Maiornumero);
+				Maiornumero = numero;
 			}
-		 Console.ReadKey();
+		}
+			Console.WriteLine(Maiornumero);
+	Console.ReadKey();
+			
+	
+	
 		}
 	}
 }
