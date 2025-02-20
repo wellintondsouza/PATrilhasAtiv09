@@ -63,7 +63,7 @@ public class Program
         // Lista de produtos disponíveis
         List<Produto> listaDeProdutos = new List<Produto>
         {
-            new Produto("Camiseta", 49.90m),
+            new Produto("Camiseta", 50.00m),
             new Produto("Calça Jeans", 129.90m),
             new Produto("Tênis", 199.90m),
             new Produto("Jaqueta", 159.90m),
@@ -96,7 +96,11 @@ public class Program
                 {
                     Produto produtoEscolhido = listaDeProdutos[escolha - 1];
                     carrinho.AdicionarProduto(produtoEscolhido);
-                    Console.WriteLine($"Produto '{produtoEscolhido.Nome}' adicionado ao carrinho!\nPressione qualquer tecla para continuar...");
+                    Console.WriteLine($"Produto '{produtoEscolhido.Nome}' adicionado ao carrinho!\n");
+
+                    // Exibindo o total atualizado
+                    decimal total = carrinho.CalcularTotal();
+                    Console.WriteLine($"Total atual da compra: R${total:F2}\nPressione qualquer tecla para continuar...");
                     Console.ReadKey();
                 }
             }
@@ -107,10 +111,10 @@ public class Program
             }
         }
 
-        // Exibindo os itens do carrinho e o total
+        // Exibindo os itens do carrinho e o total final
         Console.Clear();
         carrinho.ExibirItens();
-        decimal total = carrinho.CalcularTotal();
-        Console.WriteLine($"\nValor total da compra: R${total:F2}");
+        decimal totalFinal = carrinho.CalcularTotal();
+        Console.WriteLine($"\nValor total final da compra: R${totalFinal:F2}");
     }
 }
